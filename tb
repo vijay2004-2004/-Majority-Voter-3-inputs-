@@ -1,0 +1,15 @@
+module tb_majority_voter;
+    reg a, b, c;
+    wire y;
+
+    majority_voter uut(a, b, c, y);
+
+    initial begin
+        $dumpfile("majority.vcd"); $dumpvars(0, tb_majority_voter);
+        {a,b,c} = 3'b000; #10;
+        {a,b,c} = 3'b110; #10;
+        {a,b,c} = 3'b101; #10;
+        {a,b,c} = 3'b111; #10;
+        $finish;
+    end
+endmodule
